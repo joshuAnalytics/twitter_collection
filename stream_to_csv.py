@@ -30,7 +30,7 @@ class MyStreamer(TwythonStreamer):
     # Problem with the API
     def on_error(self, status_code, data):
         print(status_code, data)
-        self.disconnect()
+        # self.disconnect()
         
     # Save each tweet to csv file
     def save_to_csv(self, tweet):
