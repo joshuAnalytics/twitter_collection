@@ -17,6 +17,14 @@ def process_tweet(tweet):
     d['user_loc'] = tweet['user']['location']
     return d
 
+# Filter out unwanted data
+def print_to_term(tweet):
+    d = {}
+    d['hashtags'] = [hashtag['text'] for hashtag in tweet['entities']['hashtags']]
+    d['text'] = tweet['text']
+    d['user_loc'] = tweet['user']['location']
+    return print (d)
+
 # Create a class that inherits TwythonStreamer
 class MyStreamer(TwythonStreamer):     
 
@@ -25,6 +33,7 @@ class MyStreamer(TwythonStreamer):
         # Only collect tweets in English
         # if data['lang'] == 'en':
         # tweet_data = process_tweet(data)
+        print_to_term(data)
         self.save_to_csv(data)
 
     # Problem with the API
