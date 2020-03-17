@@ -45,10 +45,6 @@ class MyStreamer(TwythonStreamer):
     def on_error(self, status_code, data):
         print(status_code, data)
         self.disconnect()
-        print('stream broken, waiting')
-        time.sleep(5)
-        print('stream broken, restarting')
-        start_stream('corona')
         
     # Save each tweet to csv file
     def save_to_csv(self, tweet):
